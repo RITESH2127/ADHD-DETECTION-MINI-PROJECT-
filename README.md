@@ -660,7 +660,7 @@ A: Ensure scikit-image and opencv-python-headless are correctly installed.
 
 <div align="center">
 
-**Made with ❤️ by [Ritesh Singh](https://github.com/RITESH2127)**
+**Made with ❤️ by [Ritesh Kumar](https://github.com/RITESH2127)**
 
 ⭐ If you find this project helpful, please consider giving it a star! ⭐
 
