@@ -586,10 +586,9 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 👨‍💻 Author
 
-**Ritesh Singh**  
-GitHub: [@RITESH2127](https://github.com/RITESH2127)  
-Portfolio: [Your Portfolio URL]  
-Email: [Your Email]  
+**Ritesh Kumar**  
+GitHub: [@RITESH2127](https://github.com/RITESH2127)   
+Email: [riteshkumarnew369@gmail.com]  
 
 ### Acknowledgments
 
@@ -608,7 +607,7 @@ Special thanks to:
 - 📖 **Documentation**: Check this README thoroughly
 - 🐛 **Bug Reports**: Open an issue on GitHub
 - 💬 **Discussions**: Use GitHub Discussions for questions
-- 📧 **Email**: Reach out to [your-email]
+- 📧 **Email**: Reach out to [riteshkumarnew369@gmail.com]
 
 ### Quick Troubleshooting
 
@@ -660,7 +659,7 @@ A: Ensure scikit-image and opencv-python-headless are correctly installed.
 
 <div align="center">
 
-**Made with ❤️ by [Ritesh Kumar](https://github.com/RITESH2127)**
+**Made with ❤️ by [Ritesh Kumar, Anant Pushkar, vansh raikwar ](https://github.com/RITESH2127)**
 
 ⭐ If you find this project helpful, please consider giving it a star! ⭐
 
