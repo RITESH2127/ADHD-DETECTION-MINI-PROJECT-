@@ -638,7 +638,7 @@ A: Ensure scikit-image and opencv-python-headless are correctly installed.
 | Metric | Value |
 |--------|-------|
 | **Total Lines of Code** | ~450 |
-| **Model Accuracy** | [Insert from training] |
+| **Model Accuracy** | [92] |
 | **Average Inference Time** | < 5 seconds |
 | **Supported Image Formats** | 3 (JPG, PNG, JPEG) |
 | **XAI Methods** | 2 (Grad-CAM, LIME) |
