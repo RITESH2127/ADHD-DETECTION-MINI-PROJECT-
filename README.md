@@ -1,4 +1,4 @@
-# 🧠 ADHD Diagnostics Pro
+# ADHD Diagnostics Pro
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/downloads/)
@@ -12,7 +12,7 @@
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Key Features](#key-features)
@@ -33,9 +33,9 @@
 
 ---
 
-## 🎯 Overview
+## Overview
 
-**ADHD Diagnostics Pro** is a state-of-the-art artificial intelligence system designed to assist in the detection of Attention-Deficit/Hyperactivity Disorder (ADHD) through analysis of neural signal captures, including **EEG (Electroencephalography)** and **fMRI (Functional Magnetic Resonance Imaging)** imagery.
+**ADHD Diagnostics Pro** is a state-of-the-art artificial intelligence system designed to assist in the detection of Attention-Deficit/Hyperactivity Disorder (ADHD) through analysis of neural sign[...]
 
 ### The Problem
 
@@ -48,49 +48,49 @@ Traditional ADHD diagnosis relies heavily on clinical observation, behavioral as
 ### Our Solution
 
 ADHD Diagnostics Pro leverages cutting-edge **deep learning** combined with **Explainable AI (XAI)** technologies to:
-✅ **Automate** initial screening from neural imaging data  
-✅ **Accelerate** diagnostic workflows in clinical settings  
-✅ **Transparently explain** AI decisions through Grad-CAM and LIME visualizations  
-✅ **Empower clinicians** with data-driven insights, not black-box predictions  
-✅ **Improve accessibility** through a web-based, user-friendly interface  
+**Automate** initial screening from neural imaging data  
+**Accelerate** diagnostic workflows in clinical settings  
+**Transparently explain** AI decisions through Grad-CAM and LIME visualizations  
+**Empower clinicians** with data-driven insights, not black-box predictions  
+**Improve accessibility** through a web-based, user-friendly interface  
 
 ---
 
-## ⭐ Key Features
+## Key Features
 
-### 🤖 Advanced Diagnostics Engine
+### Advanced Diagnostics Engine
 - **EfficientNetV2 Architecture**: A highly optimized convolutional neural network designed for medical image analysis
 - **Precision Inference**: State-of-the-art accuracy on neural signal classification tasks
 - **Real-time Processing**: Rapid diagnosis generation with minimal latency
 - **Binary Classification**: ADHD vs. Control (Normal) classification
 
-### 🎨 Premium User Interface
+### Premium User Interface
 - **Dark-Themed Dashboard**: Modern, glassmorphism-inspired design for reduced eye strain
 - **Responsive Layout**: Seamless experience across desktop, tablet, and mobile devices
 - **Dynamic Color Coding**: Intuitive visual feedback (red for ADHD, green for Control)
 - **Smooth Animations**: Professional micro-interactions for enhanced UX
 - **Real-time Confidence Scores**: Transparency in model predictions
 
-### 🔍 Explainable AI (XAI) Suite
+### Explainable AI (XAI) Suite
 The cornerstone of ADHD Diagnostics Pro is its **dual-method explainability engine**:
 
-#### **Grad-CAM (Gradient-weighted Class Activation Mapping)**
+#### Grad-CAM (Gradient-weighted Class Activation Mapping)
 - Generates **spatial activation heatmaps** highlighting regions of the neural signal most influential to the prediction
 - Visualizes which brain regions or signal patterns drove the classification
 - Helps clinicians understand the model's reasoning in anatomical/spatial terms
 
-#### **LIME (Local Interpretable Model-agnostic Explanations)**
+#### LIME (Local Interpretable Model-agnostic Explanations)
 - Provides **super-pixel attribution analysis** for granular feature importance
 - Identifies pixel clusters that positively or negatively influence the prediction
 - Offers local, interpretable approximations of model behavior
 - Language: Understandable explanations without requiring deep ML knowledge
 
-### 🔐 Robust State Management
+### Robust State Management
 - **Session Persistence**: Prevents UI flickering and component disappearance
 - **Stateful Architecture**: Streamlit session state tracking for seamless user experience
 - **Multi-file Handling**: Gracefully manages consecutive uploads and re-analyses
 
-### ⚡ Production-Ready Features
+### Production-Ready Features
 - **Pre-trained Models**: Ship with optimized, pre-trained weights
 - **Error Handling**: Comprehensive exception management and user-friendly error messages
 - **Cross-platform Support**: Windows (`.bat`), Linux, and macOS compatibility
@@ -98,7 +98,7 @@ The cornerstone of ADHD Diagnostics Pro is its **dual-method explainability engi
 
 ---
 
-## 🛠️ Technical Stack
+## Technical Stack
 
 | Category | Technology | Version |
 |----------|-----------|---------|
@@ -115,7 +115,7 @@ The cornerstone of ADHD Diagnostics Pro is its **dual-method explainability engi
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ### High-Level Workflow
 
@@ -178,14 +178,14 @@ The cornerstone of ADHD Diagnostics Pro is its **dual-method explainability engi
 
 ---
 
-## 📥 Installation Guide
+## Installation Guide
 
 ### Prerequisites
 
-✅ **Python 3.8 or higher** ([Download](https://www.python.org/downloads/))  
-✅ **pip** (Python package manager, included with Python)  
-✅ **~500MB** disk space for dependencies  
-✅ **2GB+ RAM** recommended for model inference  
+**Python 3.8 or higher** ([Download](https://www.python.org/downloads/))  
+**pip** (Python package manager, included with Python)  
+**~500MB** disk space for dependencies  
+**2GB+ RAM** recommended for model inference  
 
 ### Step 1: Clone or Download the Repository
 
@@ -232,7 +232,7 @@ ADHD-DETECTION-MINI-PROJECT-/
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Option 1: Command Line (All Platforms)
 
@@ -255,7 +255,7 @@ docker run -p 8501:8501 adhd-diagnostics-pro
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ADHD-DETECTION-MINI-PROJECT-/
@@ -274,7 +274,7 @@ ADHD-DETECTION-MINI-PROJECT-/
 
 ---
 
-## 🔬 How It Works
+## How It Works
 
 ### 1. Image Upload & Validation
 Users upload EEG or fMRI images in supported formats (JPG, PNG, JPEG). The system validates file integrity and format.
@@ -322,7 +322,7 @@ Users can optionally run the XAI suite to understand model decisions:
 
 ---
 
-## 🔍 Explainable AI (XAI) Suite
+## Explainable AI (XAI) Suite
 
 ### Why Explainability Matters
 
@@ -375,7 +375,7 @@ Together, they form a comprehensive explainability framework that clinicians can
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 ### Supported Image Formats
 - **JPG / JPEG**: Recommended for EEG/fMRI scans
@@ -402,7 +402,7 @@ Edit `app.py` to modify:
 
 ---
 
-## 📊 API Reference
+## API Reference
 
 ### Core Functions
 
@@ -473,7 +473,7 @@ fig = generate_lime_explanation(model, raw_image_array, class_names=['ADHD', 'CO
 
 ---
 
-## ⚠️ Clinical Disclaimer
+## Clinical Disclaimer
 
 ### Important Legal Notice
 
@@ -481,18 +481,18 @@ fig = generate_lime_explanation(model, raw_image_array, class_names=['ADHD', 'CO
 
 This system is **NOT** a substitute for professional clinical diagnosis, treatment, or professional medical advice. The AI model's predictions should never be used as the sole basis for:
 
-- ✗ Clinical diagnosis of ADHD
-- ✗ Treatment decisions
-- ✗ Prescription medications
-- ✗ School or workplace accommodations (without professional confirmation)
+- Clinical diagnosis of ADHD
+- Treatment decisions
+- Prescription medications
+- School or workplace accommodations (without professional confirmation)
 
 ### Proper Usage
 
 **This tool is intended for:**
-- ✅ Research purposes in clinical settings
-- ✅ Educational demonstrations of AI/ML concepts
-- ✅ Supporting (not replacing) clinician decision-making
-- ✅ Proof-of-concept development
+- Research purposes in clinical settings
+- Educational demonstrations of AI/ML concepts
+- Supporting (not replacing) clinician decision-making
+- Proof-of-concept development
 
 ### Professional Consultation Required
 
@@ -511,7 +511,7 @@ The developers and maintainers of ADHD Diagnostics Pro assume **no liability** f
 
 ---
 
-## 🚀 Future Enhancements
+## Future Enhancements
 
 ### Phase 2 Features
 
@@ -535,7 +535,7 @@ The developers and maintainers of ADHD Diagnostics Pro assume **no liability** f
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions from the community! Whether you're fixing bugs, improving documentation, or adding new features, please follow these guidelines:
 
@@ -572,7 +572,7 @@ Have an idea? Submit a feature request with:
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
@@ -584,7 +584,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Ritesh Kumar**  
 GitHub: [@RITESH2127](https://github.com/RITESH2127)   
@@ -600,14 +600,14 @@ Special thanks to:
 
 ---
 
-## 📞 Support & Contact
+## Support & Contact
 
 ### Getting Help
 
-- 📖 **Documentation**: Check this README thoroughly
-- 🐛 **Bug Reports**: Open an issue on GitHub
-- 💬 **Discussions**: Use GitHub Discussions for questions
-- 📧 **Email**: Reach out to [riteshkumarnew369@gmail.com]
+- **Documentation**: Check this README thoroughly
+- **Bug Reports**: Open an issue on GitHub
+- **Discussions**: Use GitHub Discussions for questions
+- **Email**: Reach out to [riteshkumarnew369@gmail.com]
 
 ### Quick Troubleshooting
 
@@ -633,7 +633,7 @@ A: Ensure scikit-image and opencv-python-headless are correctly installed.
 
 ---
 
-## 📊 Statistics
+## Statistics
 
 | Metric | Value |
 |--------|-------|
@@ -647,21 +647,21 @@ A: Ensure scikit-image and opencv-python-headless are correctly installed.
 
 ---
 
-## 🔗 Quick Links
+## Quick Links
 
-- 🌍 [GitHub Repository](https://github.com/RITESH2127/ADHD-DETECTION-MINI-PROJECT-)
-- 📚 [TensorFlow Documentation](https://www.tensorflow.org/)
-- 🎨 [Streamlit Documentation](https://docs.streamlit.io/)
-- 🔍 [LIME GitHub](https://github.com/marcotcr/lime)
-- 🧠 [EfficientNetV2 Paper](https://arxiv.org/abs/2104.14294)
+- [GitHub Repository](https://github.com/RITESH2127/ADHD-DETECTION-MINI-PROJECT-)
+- [TensorFlow Documentation](https://www.tensorflow.org/)
+- [Streamlit Documentation](https://docs.streamlit.io/)
+- [LIME GitHub](https://github.com/marcotcr/lime)
+- [EfficientNetV2 Paper](https://arxiv.org/abs/2104.14294)
 
 ---
 
 <div align="center">
 
-**Made with ❤️ by [Ritesh Kumar, Anant Pushkar, vansh raikwar ](https://github.com/RITESH2127)**
+**Made by [Ritesh Kumar, Anant Pushkar, vansh raikwar ](https://github.com/RITESH2127)**
 
-⭐ If you find this project helpful, please consider giving it a star! ⭐
+If you find this project helpful, please consider giving it a star!
 
 [⬆ back to top](#-adhd-diagnostics-pro)
 
