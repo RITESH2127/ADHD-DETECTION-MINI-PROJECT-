@@ -1,668 +1,567 @@
 # ADHD Diagnostics Pro
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/downloads/)
-[![Streamlit](https://img.shields.io/badge/Framework-Streamlit-red)](https://streamlit.io/)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)](https://www.tensorflow.org/)
-[![Code style: Professional](https://img.shields.io/badge/Code%20Style-Professional-brightgreen)](#)
+<p align="center">
+  <strong>Multimodal Deep Learning for ADHD Research</strong><br/>
+  EEG Spectrograms + 3D MRI + Transformer-Based Fusion + Explainable AI
+</p>
 
-> **Advanced AI-Powered ADHD Detection System with Explainable AI (XAI) Integration**
-> 
-> Bridging the gap between clinical diagnostics and artificial intelligence through transparent, interpretable deep learning.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.8%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/PyTorch-Deep%20Learning-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch"/>
+  <img src="https://img.shields.io/badge/TensorFlow-2.x-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow"/>
+  <img src="https://img.shields.io/badge/Streamlit-Application-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit"/>
+</p>
 
----
+<p align="center">
+  <img src="https://img.shields.io/github/license/RITESH2127/ADHD-DETECTION-MINI-PROJECT-?style=flat-square" alt="License"/>
+  <img src="https://img.shields.io/github/last-commit/RITESH2127/ADHD-DETECTION-MINI-PROJECT-?style=flat-square" alt="Last commit"/>
+  <img src="https://img.shields.io/github/repo-size/RITESH2127/ADHD-DETECTION-MINI-PROJECT-?style=flat-square" alt="Repository size"/>
+  <img src="https://img.shields.io/github/languages/top/RITESH2127/ADHD-DETECTION-MINI-PROJECT-?style=flat-square" alt="Top language"/>
+</p>
 
-## Table of Contents
-
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [Technical Stack](#technical-stack)
-- [System Architecture](#system-architecture)
-- [Installation Guide](#installation-guide)
-- [Quick Start](#quick-start)
-- [Project Structure](#project-structure)
-- [How It Works](#how-it-works)
-- [Explainable AI (XAI) Suite](#explainable-ai-xai-suite)
-- [Configuration](#configuration)
-- [API Reference](#api-reference)
-- [Clinical Disclaimer](#clinical-disclaimer)
-- [Future Enhancements](#future-enhancements)
-- [Contributing](#contributing)
-- [License](#license)
-- [Author](#author)
+<p align="center">
+  <a href="#overview">Overview</a> ·
+  <a href="#architecture">Architecture</a> ·
+  <a href="#research-pipeline">Research Pipeline</a> ·
+  <a href="#explainability">Explainability</a> ·
+  <a href="#quick-start">Quick Start</a> ·
+  <a href="#limitations">Limitations</a>
+</p>
 
 ---
 
 ## Overview
 
-**ADHD Diagnostics Pro** is a state-of-the-art artificial intelligence system designed to assist in the detection of Attention-Deficit/Hyperactivity Disorder (ADHD) through analysis of neural sign[...]
+**ADHD Diagnostics Pro** is a research-oriented multimodal machine learning project exploring ADHD-versus-control classification using complementary neural information from EEG and structural MRI.
 
-### The Problem
+The project combines:
 
-Traditional ADHD diagnosis relies heavily on clinical observation, behavioral assessments, and standardized questionnaires, which can be:
-- **Time-consuming** and labor-intensive
-- **Subjective** and prone to observer bias
-- **Geographically limited** by specialist availability
-- **Inconsistent** across different clinical settings
+- EEG time-frequency representations
+- 3D structural MRI volumes
+- Transformer-based modality encoders
+- Bidirectional cross-modal attention
+- Deep-learning classification
+- Explainable AI
+- A Streamlit research interface
 
-### Our Solution
+The objective is to build an end-to-end experimental framework for multimodal representation learning while keeping model behavior inspectable.
 
-ADHD Diagnostics Pro leverages cutting-edge **deep learning** combined with **Explainable AI (XAI)** technologies to:
-**Automate** initial screening from neural imaging data  
-**Accelerate** diagnostic workflows in clinical settings  
-**Transparently explain** AI decisions through Grad-CAM and LIME visualizations  
-**Empower clinicians** with data-driven insights, not black-box predictions  
-**Improve accessibility** through a web-based, user-friendly interface  
+> **Research status:** This is an academic/research prototype. It is not a clinically validated diagnostic device and must not be used to diagnose, treat, or make medical decisions about an individual.
 
 ---
 
-## Key Features
+# Architecture
 
-### Advanced Diagnostics Engine
-- **EfficientNetV2 Architecture**: A highly optimized convolutional neural network designed for medical image analysis
-- **Precision Inference**: State-of-the-art accuracy on neural signal classification tasks
-- **Real-time Processing**: Rapid diagnosis generation with minimal latency
-- **Binary Classification**: ADHD vs. Control (Normal) classification
+## End-to-End System
 
-### Premium User Interface
-- **Dark-Themed Dashboard**: Modern, glassmorphism-inspired design for reduced eye strain
-- **Responsive Layout**: Seamless experience across desktop, tablet, and mobile devices
-- **Dynamic Color Coding**: Intuitive visual feedback (red for ADHD, green for Control)
-- **Smooth Animations**: Professional micro-interactions for enhanced UX
-- **Real-time Confidence Scores**: Transparency in model predictions
+~~~mermaid
+flowchart TD
+    A["Raw EEG"] --> B["Band-Pass Filtering"]
+    B --> C["Windowing"]
+    C --> D["Time-Frequency Spectrograms"]
 
-### Explainable AI (XAI) Suite
-The cornerstone of ADHD Diagnostics Pro is its **dual-method explainability engine**:
+    E["Structural MRI"] --> F["NaN Handling"]
+    F --> G["Intensity Normalization"]
+    G --> H["3D Resampling"]
 
-#### Grad-CAM (Gradient-weighted Class Activation Mapping)
-- Generates **spatial activation heatmaps** highlighting regions of the neural signal most influential to the prediction
-- Visualizes which brain regions or signal patterns drove the classification
-- Helps clinicians understand the model's reasoning in anatomical/spatial terms
+    D --> I["EEG Spectrogram Transformer"]
+    H --> J["3D MRI Transformer"]
 
-#### LIME (Local Interpretable Model-agnostic Explanations)
-- Provides **super-pixel attribution analysis** for granular feature importance
-- Identifies pixel clusters that positively or negatively influence the prediction
-- Offers local, interpretable approximations of model behavior
-- Language: Understandable explanations without requiring deep ML knowledge
+    I --> K["Cross-Modal Attention"]
+    J --> K
+    K --> L["Feature Fusion"]
+    L --> M["Classification Head"]
+    M --> N["ADHD / Control"]
+    N --> O["Explainability"]
+~~~
 
-### Robust State Management
-- **Session Persistence**: Prevents UI flickering and component disappearance
-- **Stateful Architecture**: Streamlit session state tracking for seamless user experience
-- **Multi-file Handling**: Gracefully manages consecutive uploads and re-analyses
+## Core Model
 
-### Production-Ready Features
-- **Pre-trained Models**: Ship with optimized, pre-trained weights
-- **Error Handling**: Comprehensive exception management and user-friendly error messages
-- **Cross-platform Support**: Windows (`.bat`), Linux, and macOS compatibility
-- **Reproducible Results**: Deterministic inference with fixed preprocessing pipeline
+### EEG branch
 
----
+EEG recordings are filtered, divided into overlapping windows, converted into channel-wise spectrograms, logarithmically transformed, patch-projected, and processed by a Transformer encoder.
 
-## Technical Stack
+Current research configuration:
 
-| Category | Technology | Version |
-|----------|-----------|---------|
-| **Language** | Python | 3.8+ |
-| **Web Framework** | Streamlit | Latest |
-| **Deep Learning** | TensorFlow / Keras | 2.x |
-| **Neural Network** | EfficientNetV2 | Pre-trained |
-| **Explainability** | LIME | Latest |
-| **Computer Vision** | OpenCV (cv2) | Latest |
-| **Image Processing** | Pillow (PIL) | Latest |
-| **Visualization** | Matplotlib | Latest |
-| **Numerical Computing** | NumPy | Latest |
-| **License** | MIT | - |
+| Parameter | Value |
+|---|---:|
+| EEG channels | 19 |
+| Sampling rate | 128 Hz |
+| Band-pass | 0.5–50 Hz |
+| Window size | 256 samples |
+| Step size | 128 samples |
+| Embedding dimension | 128 |
+| Attention heads | 4 |
+| Transformer layers | 2 |
 
----
+### MRI branch
 
-## System Architecture
+Structural MRI volumes are loaded as NIfTI data, sanitized, normalized, resampled to 96 × 96 × 96, converted into 3D patches, and processed through a Transformer-based encoder.
 
-### High-Level Workflow
+### Cross-modal fusion
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    USER UPLOADS EEG/fMRI                     │
-│                        (JPG, PNG, JPEG)                      │
-└────────────────────────┬────────────────────────────────────┘
-                         │
-                         ▼
-┌─────────────────────────────────────────────────────────────┐
-│              IMAGE PREPROCESSING PIPELINE                    │
-│  • Format Conversion (RGB)                                   │
-│  • Resizing (224×224)                                        │
-│  • Normalization (EfficientNetV2 Spec)                       │
-└────────────────────────┬────────────────────────────────────┘
-                         │
-                         ▼
-┌─────────────────────────────────────────────────────────────┐
-│           EFFICIENTNETV2 INFERENCE ENGINE                    │
-│  • Feature Extraction                                        │
-│  • Classification (ADHD vs. Control)                         │
-│  • Confidence Score Generation                               │
-└────────────────────────┬────────────────────────────────────┘
-                         │
-                         ▼
-┌─────────────────────────────────────────────────────────────┐
-│           DIAGNOSTIC RESULT + CONFIDENCE SCORE               │
-│           (Displayed in Premium UI)                          │
-└────────────────────────┬────────────────────────────────────┘
-                         │
-                         ▼
-        ┌─────────────────┴────────────────────┐
-        │                                      │
-        ▼                                      ▼
-┌──────────────────┐              ┌──────────────────────────┐
-│  GRAD-CAM XAI    │              │  LIME XAI Attribution    │
-│  (Heatmap)       │              │  (Super-pixel Analysis)  │
-└──────────────────┘              └──────────────────────────┘
-        │                                      │
-        └─────────────────┬────────────────────┘
-                         │
-                         ▼
-        ┌──────────────────────────────────────┐
-        │   EXPLAINABILITY VISUALIZATION       │
-        │   (Side-by-side Comparison)          │
-        └──────────────────────────────────────┘
-```
+Instead of simply concatenating independent features, the model uses bidirectional multi-head cross-attention so that learned EEG and MRI representations can interact before classification.
 
-### Key Components
-
-| Component | Purpose | File |
-|-----------|---------|------|
-| **Main App** | Streamlit web interface, routing, and state management | `app.py` |
-| **Preprocessing** | Image normalization and format conversion | `app.py` (preprocess_image) |
-| **Inference** | Model loading and prediction execution | `app.py` (load_my_model) |
-| **Grad-CAM** | Spatial heatmap generation | `app.py` (VizGradCAM) |
-| **LIME** | Super-pixel attribution analysis | `app.py` (generate_lime_explanation) |
-| **Pre-trained Model** | EfficientNetV2 weights | `new_joint_best_model.keras` |
+~~~text
+EEG embedding ──────────────┐
+                            │
+                            ▼
+                    Cross-Modal Attention
+                            ▲
+                            │
+MRI embedding ──────────────┘
+                            │
+                            ▼
+                    Fused representation
+                            │
+                            ▼
+                     Classification
+                            │
+                     ┌──────┴──────┐
+                     ▼             ▼
+                   ADHD         Control
+~~~
 
 ---
 
-## Installation Guide
+# Research Pipeline
 
-### Prerequisites
+## EEG Processing
 
-**Python 3.8 or higher** ([Download](https://www.python.org/downloads/))  
-**pip** (Python package manager, included with Python)  
-**~500MB** disk space for dependencies  
-**2GB+ RAM** recommended for model inference  
+1. Load subject-level EEG data.
+2. Remove missing observations.
+3. Select the EEG channels.
+4. Apply a fourth-order Butterworth band-pass filter.
+5. Generate overlapping windows.
+6. Compute spectrograms.
+7. Apply logarithmic transformation.
+8. Preserve subject identifiers for grouped evaluation.
 
-### Step 1: Clone or Download the Repository
+~~~text
+Raw EEG
+   ↓
+Band-pass filter
+   ↓
+Sliding windows
+   ↓
+Channel-wise spectrograms
+   ↓
+Log transformation
+   ↓
+Patch representation
+   ↓
+EEG Transformer
+~~~
 
-```bash
-git clone https://github.com/RITESH2127/ADHD-DETECTION-MINI-PROJECT-.git
-cd ADHD-DETECTION-MINI-PROJECT-
-```
+## MRI Processing
 
-Or download the ZIP file and extract it.
+1. Load NIfTI volumes with NiBabel.
+2. Replace invalid numerical values safely.
+3. Normalize intensity values.
+4. Resize volumes to 96 × 96 × 96.
+5. Convert volumes to tensors.
+6. Extract 3D patch representations.
+7. Encode patches using a Transformer.
 
-### Step 2: Create a Virtual Environment (Recommended)
+## Subject-Aware Validation
 
-**On macOS/Linux:**
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
+The research notebook uses subject identifiers with GroupShuffleSplit to reduce the risk of placing windows from the same participant into both training and validation partitions.
 
-**On Windows:**
-```cmd
-python -m venv venv
-venv\Scripts\activate
-```
-
-### Step 3: Install Dependencies
-
-```bash
-pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-### Step 4: Verify Model File
-
-Ensure the pre-trained model file **`new_joint_best_model.keras`** is placed in the project root directory (same location as `app.py`).
-
-```
-ADHD-DETECTION-MINI-PROJECT-/
-├── app.py
-├── requirements.txt
-├── new_joint_best_model.keras  ✅ (Must be here)
-├── notebook.ipynb
-└── ...
-```
+This distinction is important because overlapping windows from a single participant are not independent biological observations.
 
 ---
 
-## Quick Start
+# Explainability
 
-### Option 1: Command Line (All Platforms)
+The project includes an explainability layer to make model behavior easier to inspect.
 
-```bash
-streamlit run app.py
-```
+## Grad-CAM
 
-The application will launch in your default browser at `http://localhost:8501`
+Grad-CAM produces activation maps associated with model predictions.
 
-### Option 2: Windows Batch File
+~~~text
+Input
+  ↓
+Feature extraction
+  ↓
+Target-class gradients
+  ↓
+Weighted activation map
+  ↓
+Heatmap
+  ↓
+Visual interpretation
+~~~
 
-Double-click the **`run_app.bat`** file in the project directory.
+## LIME
 
-### Option 3: Docker (Future Enhancement)
+LIME provides local feature attribution by creating perturbed samples, observing model responses, and fitting an interpretable local approximation.
 
-```bash
-docker build -t adhd-diagnostics-pro .
-docker run -p 8501:8501 adhd-diagnostics-pro
-```
+~~~text
+Input image
+    ↓
+Superpixel segmentation
+    ↓
+Perturbed samples
+    ↓
+Model predictions
+    ↓
+Local surrogate model
+    ↓
+Feature attribution
+~~~
+
+### Important interpretation principle
+
+XAI visualizations describe aspects of model behavior. They do not establish causal biomarkers, biological mechanisms, or clinical validity.
 
 ---
 
-## Project Structure
+# Technology Stack
 
-```
+| Layer | Technology |
+|---|---|
+| Language | Python |
+| Deep Learning Research | PyTorch |
+| Application / Inference | TensorFlow / Keras |
+| Web Interface | Streamlit |
+| EEG Processing | NumPy, SciPy, Pandas |
+| MRI Processing | NiBabel |
+| Computer Vision | OpenCV |
+| Image Processing | Pillow, scikit-image |
+| Explainable AI | LIME, Grad-CAM-oriented visualization |
+| Visualization | Matplotlib |
+| Data Splitting | scikit-learn |
+| Experiment Environment | Jupyter / Kaggle-compatible workflow |
+
+---
+
+# Project Structure
+
+~~~text
 ADHD-DETECTION-MINI-PROJECT-/
 │
-├── app.py                              # Main Streamlit application
-├── requirements.txt                    # Python dependencies
-├── new_joint_best_model.keras         # Pre-trained EfficientNetV2 model
-├── notebook18c25b8789 (1).ipynb       # Jupyter notebook with model training
-├── run_app.bat                        # Windows launcher script
-├── run.txt                            # Command reference
-├── .python-version                    # Python version specification
-├── .gitignore                         # Git ignore rules
-├── LICENSE                            # MIT License
-└── README.md                          # This file
-```
+├── app.py
+│   └── Streamlit application layer
+│
+├── ADHD_MINI_PROJECT.ipynb
+│   └── Main research notebook
+│
+├── Copy_of_ADHD_MINI_PROJECT.ipynb
+│   └── Additional notebook version
+│
+├── notebook18c25b8789 (1).ipynb
+│   └── Extended experimentation / training notebook
+│
+├── requirements.txt
+│   └── Application dependencies
+│
+├── run.txt
+│   └── Launch command
+│
+├── run_app.bat
+│   └── Windows launcher
+│
+├── .python-version
+│   └── Python version specification
+│
+├── .gitignore
+├── LICENSE
+└── README.md
+~~~
 
 ---
 
-## How It Works
+# Quick Start
 
-### 1. Image Upload & Validation
-Users upload EEG or fMRI images in supported formats (JPG, PNG, JPEG). The system validates file integrity and format.
+## 1. Clone
 
-### 2. Preprocessing Pipeline
-```python
-Image Conversion (RGB)
-    ↓
-Resize to 224×224 (EfficientNetV2 input)
-    ↓
-Normalize pixel values (EfficientNetV2 preprocessing)
-    ↓
-Convert to tensor array
-    ↓
-Ready for inference
-```
+~~~bash
+git clone https://github.com/RITESH2127/ADHD-DETECTION-MINI-PROJECT-.git
+cd ADHD-DETECTION-MINI-PROJECT-
+~~~
 
-### 3. Neural Network Inference
-The **EfficientNetV2** model processes the preprocessed image through:
-- **Feature Extraction Layers**: Hierarchical pattern recognition (edges → shapes → semantic features)
-- **Classification Head**: Binary classification (ADHD vs. Control)
-- **Confidence Scoring**: Softmax probability distribution
+## 2. Create an environment
 
-### 4. Result Generation
-- **Prediction**: ADHD or Control
-- **Confidence Score**: 0-100% probability
-- **Latency**: Typically < 5 seconds per image
+### Windows
 
-### 5. Explainability Analysis (XAI)
-Users can optionally run the XAI suite to understand model decisions:
+~~~powershell
+python -m venv venv
+venv\Scripts\activate
+~~~
 
-#### Grad-CAM Process:
-1. Forward pass through the model
-2. Compute gradients of the predicted class w.r.t. feature maps
-3. Weighted average across channels
-4. Upscale to original image resolution
-5. Apply color mapping (Jet colormap)
+### macOS / Linux
 
-#### LIME Process:
-1. Segment image into super-pixels
-2. Generate perturbed image variants
-3. Collect model predictions on variants
-4. Fit interpretable local model
-5. Extract feature importance weights
+~~~bash
+python3 -m venv venv
+source venv/bin/activate
+~~~
 
----
+## 3. Install dependencies
 
-## Explainable AI (XAI) Suite
+~~~bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+~~~
 
-### Why Explainability Matters
+## 4. Launch
 
-In clinical settings, a prediction without explanation is insufficient. ADHD Diagnostics Pro includes two complementary XAI techniques:
+~~~bash
+streamlit run app.py
+~~~
 
-### Grad-CAM (Gradient-weighted Class Activation Mapping)
+The application normally opens at:
 
-**What it shows:**
-- A heatmap overlaid on the input image
-- Red/hot regions = high influence on prediction
-- Blue/cool regions = low influence on prediction
+~~~text
+http://localhost:8501
+~~~
 
-**Why it matters:**
-- Clinicians can see which brain regions drove the decision
-- Validates that the model looks at clinically relevant areas
-- Builds trust through anatomical interpretability
-
-**Interpretation Example:**
-```
-If Grad-CAM highlights frontal lobe regions with high intensity,
-it suggests the model identified patterns consistent with ADHD-
-associated brain activation.
-```
-
-### LIME (Local Interpretable Model-agnostic Explanations)
-
-**What it shows:**
-- Super-pixel segmentation of the image
-- Color-coded attribution (warm colors = positive influence, cool = negative)
-
-**Why it matters:**
-- Model-agnostic (works with any classifier)
-- Provides local approximation explanations
-- Granular feature importance at the pixel cluster level
-
-**Interpretation Example:**
-```
-If a LIME analysis shows green highlighting on specific brain
-regions, it indicates those regions' pixel patterns support the
-model's confidence in the prediction.
-```
-
-### Simultaneous Execution
-
-Both methods run concurrently after classification, providing complementary perspectives:
-- **Grad-CAM**: Spatial attention maps
-- **LIME**: Local feature importance
-
-Together, they form a comprehensive explainability framework that clinicians can trust.
+Windows users can also use the included run_app.bat launcher.
 
 ---
 
-## Configuration
+# Dataset Workflow
 
-### Supported Image Formats
-- **JPG / JPEG**: Recommended for EEG/fMRI scans
-- **PNG**: High-quality alternative
-- **Max File Size**: 50MB (Streamlit default)
+The research notebooks reference public ADHD-related EEG and ADHD-200 MRI datasets hosted through Kaggle-compatible environments.
 
-### Model Parameters
+The original notebook paths are environment-specific. When running the notebooks locally, replace those paths with the local dataset locations.
 
-| Parameter | Value | Notes |
-|-----------|-------|-------|
-| **Input Resolution** | 224×224 | EfficientNetV2 standard |
-| **Color Channels** | 3 (RGB) | Converted from grayscale if needed |
-| **Output Classes** | 2 | ADHD, Control |
-| **Architecture** | EfficientNetV2 | Optimized for medical imaging |
-| **Preprocessing** | EfficientNetV2 Spec | Per-channel normalization |
+### EEG
 
-### UI Customization
+The training workflow expects subject-level EEG data containing identifiers, class labels, and EEG channels.
 
-Edit `app.py` to modify:
-- **Color Scheme**: Update CSS gradient colors (lines 45, 83, 331-338)
-- **Fonts**: Change `Inter` font family in CSS (line 24)
-- **Theme**: Modify `background-color` and `backdrop-filter` values
-- **Animations**: Adjust `@keyframes` timing (lines 128-135)
+### MRI
+
+The MRI pipeline expects preprocessed NIfTI anatomical volumes.
+
+> Always review dataset licensing, terms of use, participant privacy requirements, and redistribution restrictions before using or sharing research data.
 
 ---
 
-## API Reference
+# Training Workflow
 
-### Core Functions
+~~~mermaid
+flowchart LR
+    A["EEG CSV"] --> B["EEG preprocessing"]
+    B --> C["Spectrogram dataset"]
 
-#### `load_my_model()`
-Loads the pre-trained EfficientNetV2 model from disk with caching.
+    D["MRI NIfTI"] --> E["MRI preprocessing"]
+    E --> F["3D tensor dataset"]
 
-**Parameters:** None  
-**Returns:** `tf.keras.models.Model` or `None` (on error)  
-**Usage:**
-```python
-model = load_my_model()
-```
+    C --> G["Subject-aware split"]
+    F --> G
 
----
+    G --> H["EEG Transformer"]
+    G --> I["MRI Transformer"]
 
-#### `preprocess_image(image)`
-Preprocesses PIL Image to tensor suitable for model inference.
+    H --> J["Cross-modal attention"]
+    I --> J
 
-**Parameters:**
-- `image` (PIL.Image): Input image
+    J --> K["Classifier"]
+    K --> L["Loss"]
+    L --> M["Backpropagation"]
+    M --> H
+    M --> I
+~~~
 
-**Returns:**
-- `img_array` (np.ndarray): Preprocessed tensor [1, 224, 224, 3]
-- `raw_img` (np.ndarray): Original image for XAI visualization
-
-**Usage:**
-```python
-preprocessed_img, raw_img = preprocess_image(image)
-```
+The current notebook uses Adam optimization, cross-entropy loss, GPU acceleration when available, and automatic mixed precision when CUDA is available.
 
 ---
 
-#### `VizGradCAM(model, image, class_names, interpolant)`
-Generates Grad-CAM heatmap visualization.
+# Evaluation Framework
 
-**Parameters:**
-- `model` (tf.keras.models.Model): Trained model
-- `image` (np.ndarray): Input image array
-- `actual_label` (str, optional): Ground truth label
-- `class_names` (list): Classification labels (default: `['ADHD', 'CONTROL']`)
-- `interpolant` (float): Heatmap transparency (0.0-1.0, default: 0.6)
+A serious neuroimaging ML evaluation should go beyond a single accuracy value.
 
-**Returns:**
-- `fig` (matplotlib.figure.Figure): Visualization figure or `None`
+| Metric / Analysis | Purpose |
+|---|---|
+| Accuracy | Overall classification correctness |
+| Precision | Reliability of positive predictions |
+| Recall / Sensitivity | Detection of positive cases |
+| Specificity | Identification of controls |
+| F1-score | Precision-recall balance |
+| ROC-AUC | Threshold-independent ranking performance |
+| Confusion matrix | Error distribution |
+| Subject-level validation | Participant-level generalization |
+| External validation | Robustness on independent data |
+| Calibration | Reliability of predicted probabilities |
+| Ablation studies | Contribution of each modality/component |
 
-**Usage:**
-```python
-fig = VizGradCAM(model, raw_image_array, class_names=['ADHD', 'CONTROL'])
-```
-
----
-
-#### `generate_lime_explanation(model, raw_img, class_names)`
-Generates LIME super-pixel attribution visualization.
-
-**Parameters:**
-- `model` (tf.keras.models.Model): Trained model
-- `raw_img` (np.ndarray): Original image array
-- `class_names` (list): Classification labels
-
-**Returns:**
-- `fig` (matplotlib.figure.Figure): Visualization figure
-
-**Usage:**
-```python
-fig = generate_lime_explanation(model, raw_image_array, class_names=['ADHD', 'CONTROL'])
-```
+A strong internal metric does not by itself establish clinical validity or generalization.
 
 ---
 
-## Clinical Disclaimer
+# Limitations
 
-### Important Legal Notice
+This repository should be understood as a research prototype.
 
-**ADHD Diagnostics Pro is a research and educational tool only.**
+### Dataset limitations
 
-This system is **NOT** a substitute for professional clinical diagnosis, treatment, or professional medical advice. The AI model's predictions should never be used as the sole basis for:
+Results can be affected by sample composition, acquisition protocols, hardware, preprocessing decisions, demographic characteristics, and dataset-specific artifacts.
 
-- Clinical diagnosis of ADHD
-- Treatment decisions
-- Prescription medications
-- School or workplace accommodations (without professional confirmation)
+### Generalization
 
-### Proper Usage
+Performance on a development dataset does not establish robustness across unseen participants, institutions, devices, populations, or independent datasets.
 
-**This tool is intended for:**
-- Research purposes in clinical settings
-- Educational demonstrations of AI/ML concepts
-- Supporting (not replacing) clinician decision-making
-- Proof-of-concept development
+### Multimodal alignment
 
-### Professional Consultation Required
+The current research implementation uses dataset indexing and length matching when pairing EEG-derived samples with MRI files. A production-grade multimodal research system should explicitly align modalities using validated participant identifiers and acquisition metadata.
 
-Individuals suspected of having ADHD should:
-1. **Consult a qualified healthcare provider** (Psychiatrist, Psychologist, Neurologist)
-2. **Undergo comprehensive clinical evaluation** including behavioral assessments, cognitive testing, and medical history
-3. **Obtain professional diagnosis and treatment** from licensed medical professionals
+### Explainability
 
-### Liability
+Grad-CAM and LIME explain model behavior; they do not prove that highlighted patterns are causal neurological biomarkers.
 
-The developers and maintainers of ADHD Diagnostics Pro assume **no liability** for:
-- Misuse of this tool
-- Incorrect self-diagnoses
-- Health decisions made based on this system's output
-- Legal or medical consequences arising from inappropriate use
+### Clinical validity
+
+The system has not been clinically validated and should not be used for diagnosis, treatment, medication decisions, triage, or other medical decision-making.
 
 ---
 
-## Future Enhancements
+# Responsible Use
 
-### Phase 2 Features
+### Intended for
 
-- [ ] **Multi-class Classification**: Support for additional neurodevelopmental disorders (Autism, Dyslexia, etc.)
-- [ ] **API Endpoint**: RESTful API for enterprise integration
-- [ ] **Batch Processing**: Analyze multiple scans in parallel
-- [ ] **Model Ensemble**: Combine multiple architectures for robust predictions
-- [ ] **Confidence Intervals**: Bayesian uncertainty quantification
-- [ ] **Attention Maps**: Layer-wise attention visualization
-- [ ] **Performance Dashboard**: Real-time accuracy/sensitivity/specificity metrics
+- Academic research
+- Machine learning experimentation
+- Neuroimaging education
+- Multimodal representation-learning research
+- Explainable AI experimentation
+- Research-oriented application demonstrations
 
-### Phase 3 Features
+### Not intended for
 
-- [ ] **Database Integration**: Store predictions and audit trails
-- [ ] **User Authentication**: Multi-tenant support for hospitals/clinics
-- [ ] **Advanced Reporting**: Generate clinical-grade PDF reports
-- [ ] **Model Versioning**: Track and compare model performance over time
-- [ ] **Federated Learning**: Privacy-preserving distributed training
-- [ ] **Mobile App**: iOS/Android native applications
-- [ ] **Real-time Collaboration**: Multi-user analysis sessions
+- Self-diagnosis
+- Clinical diagnosis
+- Treatment selection
+- Medication decisions
+- Medical triage
+- Educational or employment decisions based solely on model output
 
----
-
-## Contributing
-
-We welcome contributions from the community! Whether you're fixing bugs, improving documentation, or adding new features, please follow these guidelines:
-
-### How to Contribute
-
-1. **Fork the repository** on GitHub
-2. **Create a feature branch** (`git checkout -b feature/amazing-feature`)
-3. **Commit your changes** with clear, descriptive messages
-4. **Push to your branch** (`git push origin feature/amazing-feature`)
-5. **Open a Pull Request** with detailed description of changes
-
-### Code Standards
-
-- Follow **PEP 8** Python style guidelines
-- Write **docstrings** for all functions
-- Include **type hints** where applicable
-- Add **comments** for complex logic
-- Maintain **backward compatibility**
-
-### Reporting Issues
-
-Found a bug? Please open an **Issue** with:
-- Clear title and description
-- Steps to reproduce
-- Expected vs. actual behavior
-- Environment details (OS, Python version, dependencies)
-
-### Feature Requests
-
-Have an idea? Submit a feature request with:
-- Clear use case and benefits
-- Implementation suggestions (if possible)
-- Related issues or references
+Any future clinical application would require substantially more evidence, independent validation, appropriate governance, regulatory assessment, and qualified professional oversight.
 
 ---
 
-## License
+# Future Research
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+## Modeling
 
-**MIT License Summary:**
-- ✅ Free to use, modify, and distribute
-- ✅ Include original license and copyright notice
-- ✅ Software provided "as-is" without warranty
-- ⚠️ Liability limitations apply
+- Subject-aware multimodal alignment
+- Stronger cross-modal Transformer architectures
+- Temporal Transformer modeling for raw EEG
+- Self-supervised pretraining
+- Contrastive EEG-MRI representation learning
+- Uncertainty-aware inference
+- Modality ablation experiments
 
----
+## Evaluation
 
-## Author
+- Nested subject-level cross-validation
+- Independent external validation
+- Dataset-shift analysis
+- Probability calibration
+- Confidence intervals
+- Statistical significance testing
+- Robustness benchmarking
 
-**Ritesh Kumar**  
-GitHub: [@RITESH2127](https://github.com/RITESH2127)   
-Email: [riteshkumarnew369@gmail.com]  
+## Explainability
 
-### Acknowledgments
+- Integrated Gradients
+- SHAP
+- Attention rollout
+- Modality-specific attribution
+- Counterfactual explanations
+- Explanation stability analysis
 
-Special thanks to:
-- **TensorFlow/Keras Team** for the deep learning framework
-- **Streamlit** for the intuitive web app framework
-- **LIME Authors** for interpretable ML methods
-- **The Open-Source Community** for continuous support and inspiration
+## Engineering
 
----
-
-## Support & Contact
-
-### Getting Help
-
-- **Documentation**: Check this README thoroughly
-- **Bug Reports**: Open an issue on GitHub
-- **Discussions**: Use GitHub Discussions for questions
-- **Email**: Reach out to [riteshkumarnew369@gmail.com]
-
-### Quick Troubleshooting
-
-**Q: Model file not found error**
-```
-A: Ensure 'new_joint_best_model.keras' is in the project root directory.
-```
-
-**Q: ImportError: No module named 'streamlit'**
-```
-A: Run: pip install -r requirements.txt
-```
-
-**Q: Slow inference on CPU**
-```
-A: Consider using tensorflow-gpu or cloud GPU services for faster predictions.
-```
-
-**Q: LIME analysis crashes**
-```
-A: Ensure scikit-image and opencv-python-headless are correctly installed.
-```
+- Configuration management
+- Automated tests
+- GitHub Actions CI
+- Experiment tracking
+- Model versioning
+- Containerized deployment
+- Hardware-aware inference optimization
 
 ---
 
-## Statistics
+# Reproducibility Checklist
 
-| Metric | Value |
-|--------|-------|
-| **Total Lines of Code** | ~450 |
-| **Model Accuracy** | [92] |
-| **Average Inference Time** | < 5 seconds |
-| **Supported Image Formats** | 3 (JPG, PNG, JPEG) |
-| **XAI Methods** | 2 (Grad-CAM, LIME) |
-| **Python Version** | 3.8+ |
-| **License** | MIT |
+For meaningful research comparisons:
 
----
+- Fix dataset versions.
+- Record preprocessing parameters.
+- Preserve subject-level partitions.
+- Record random seeds.
+- Version model configurations.
+- Save training metrics and checkpoints.
+- Separate model artifacts from source code.
+- Evaluate on unseen participants.
+- Perform independent external validation.
+- Report failure cases rather than only successful predictions.
 
-## Quick Links
-
-- [GitHub Repository](https://github.com/RITESH2127/ADHD-DETECTION-MINI-PROJECT-)
-- [TensorFlow Documentation](https://www.tensorflow.org/)
-- [Streamlit Documentation](https://docs.streamlit.io/)
-- [LIME GitHub](https://github.com/marcotcr/lime)
-- [EfficientNetV2 Paper](https://arxiv.org/abs/2104.14294)
+For large model artifacts, Git LFS or dedicated model storage is preferable to committing large binaries directly to the repository.
 
 ---
 
-<div align="center">
+# Research Roadmap
 
-**Made by [Ritesh Kumar, Anant Pushkar, vansh raikwar ](https://github.com/RITESH2127)**
+~~~mermaid
+timeline
+    title ADHD Diagnostics Pro
+    2026 : Multimodal EEG + MRI prototype
+         : Transformer modality encoders
+         : Cross-modal attention
+         : Streamlit research interface
+    Next : Subject-level multimodal alignment
+         : Stronger validation
+         : External dataset evaluation
+         : Calibration and uncertainty
+         : Quantitative XAI evaluation
+    Future : Robust multimodal representation learning
+           : Reproducible experiment tracking
+           : Large-scale independent validation
+~~~
 
-If you find this project helpful, please consider giving it a star!
+---
 
-[⬆ back to top](#-adhd-diagnostics-pro)
+# Citation
 
-</div>
+If you use this repository in an academic project, report, presentation, or derivative research work:
+
+~~~bibtex
+@software{ritesh_kumar_adhd_diagnostics_pro,
+  author  = {Ritesh Kumar},
+  title   = {ADHD Diagnostics Pro},
+  year    = {2026},
+  url     = {https://github.com/RITESH2127/ADHD-DETECTION-MINI-PROJECT-},
+  license = {MIT}
+}
+~~~
+
+---
+
+# License
+
+Released under the **MIT License**.
+
+See [LICENSE](LICENSE) for the complete license text.
+
+---
+
+# Author
+
+<p align="center">
+  <strong>Ritesh Kumar</strong><br/>
+  Computer Science Engineering
+</p>
+
+<p align="center">
+  <a href="https://github.com/RITESH2127">GitHub Profile</a>
+  ·
+  <a href="https://github.com/RITESH2127/ADHD-DETECTION-MINI-PROJECT-">Repository</a>
+</p>
+
+---
+
+<p align="center">
+  <sub>Research, engineering, and responsible exploration of multimodal AI for neuroimaging.</sub>
+</p>
